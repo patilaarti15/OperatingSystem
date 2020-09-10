@@ -1,0 +1,214 @@
+1. Write a script to create 10 directories, say a1,a2,...,a10
+Report error if a directory/file exists with the same name.
+
+$ mkdir a1 a2 a3 a4 a5 a6 a7 a8 a9 a10
+
+OR
+
+$ for i in{1..10}
+do 
+echo a$i
+done
+
+________________________________________________________________________________________________________________________________________________________________________________________________________
+2. Write a menu based script to perform following string operations
+a) To find length of a string
+   $ echo -n aarti | wc -m
+     5
+c) Copying string
+
+d) Concatenation of strings
+      str1="Hello"
+      str2=" World"
+      echo "$str1$str2"
+      
+
+e) Compare two strings
+      str1="Hello"
+      str2=" World"
+      if ["$str1" = "$str2"];then
+      echo "string is equal"
+      else
+      echo "string is notequal"
+      fi
+
+f) Reversing a string
+      $ echo "welcome" |rev
+      emoclew
+      
+________________________________________________________________________________________________________________________________________________________________________________________________________
+3.Write a shell script to rename all files in the current directory with numeric continuous value(Warning: Do this in a personal folder. Don't use Home directory) 
+________________________________________________________________________________________________________________________________________________________________________________________________________
+4. Write a script that print environment variable(Print $HOME,$PATH,$SHELL,$HISTORY,$LOGNAME,$TERM)
+echo $HOME
+echo $PATH
+echo $SHELL
+echo $HISTORY
+echo $LOGNAME
+echo $TERM
+________________________________________________________________________________________________________________________________________________________________________________________________________
+5. Write a shell script to print all files permissions in current directory(Not name or other details)(Use cut commands)
+ $ ls -l
+_____________________________________________________________________________________________________________________________________________________________________________________________________
+6. Write a shell script to print all files permissions and name of file
+  $ ls -al
+________________________________________________________________________________________________________________________________________________________________________________________________________
+7.Write a shell script to print all files name and size greater than 5K
+  $ find -type f "*.sh" -size +5k -ls
+  $ find -type f "*.sh" -size -5k -ls
+
+________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+1. Write a script To check given year is leap or not.
+    echo "enter a year"
+    read YEAR
+    if (( ($YEAR % 4) == 0 ))
+    then 
+        echo "THIS  Is Leap Year"
+
+    elif (( ($YEAR % 400) == 0 ))
+    then 
+        echo "THIS  Is Leap Year"
+   
+    else
+        echo "THIS Is Not Leap Year"
+   fi
+________________________________________________________________________________________________________________________________________________________________________________________________________
+2. Write a script to print day of the week using
+	a) elif	
+echo "Enter your choice between 1 to 7"
+read input
+
+if [[ $input == "1" ]]; then    // we can use -eq (or) ==
+        echo "Sunday"
+elif [[ $input -eq "2" ]]; then
+        echo "Monday"
+elif [[ $input -eq "3" ]]; then
+        echo "Tuesday"
+elif [[ $input -eq "4" ]]; then
+        echo "Wednesday"
+elif [[ $input -eq "5" ]]; then
+        echo "Thursday"
+elif [[ $input -eq "6" ]]; then
+        echo "Friday"
+elif [[ $input -eq "7" ]]; then
+        echo "Saturday"
+else
+        echo "Invalid input."
+fi
+b) case 
+echo "enter number between 1 to 7"
+read num
+
+case $num in
+
+1) echo "Sunday" ;;
+2) echo "Monday" ;;
+3) echo "Tuesday" ;;
+4) echo "Wednesday" ;;
+5) echo "Thursday" ;;
+6) echo "Friday" ;;
+7) echo "Saturday" ;;
+
+esac
+________________________________________________________________________________________________________________________________________________________________________________________________________
+3. a) Write a script to find biggest of three no.s
+         echo "enter 1st number"
+         read num1
+         echo "enter 2nd number"
+         read num2
+         echo "enter 3rd number"
+         read num3
+         if [ $num1 -gt $num2 ] && [ $num1 -gt $num3 ]
+         then 
+         echo " $num1 is greatest number"
+         elif [ $num2 -gt $num1 ] && [ $num2 -gt $num3 ]
+         then
+         echo " $num2 is greatest number"
+         else
+         echo " $num3 is greatest number"
+         fi
+   b) To find avg of 3 no.s, read no.s from keyboard
+       echo "enter 1st number"
+        read num1
+        echo "enter 2nd number"
+        read num2
+        echo "enter 3rd number"
+        read num3
+        sum=`expr $num1 + $num2 + $num3`
+        avg=`expr $sum / 3`
+        echo "Sum = $sum"
+        echo "Average = $avg"
+________________________________________________________________________________________________________________________________________________________________________________________________________
+4. Write a program to check wahether given no.is even or odd
+     read -p "Enter a number: " number
+     if[ $((number%2)) == 0 ] //can use -eq instead of ==
+     then
+     echo "Number is even."
+     else
+     echo "Number is odd."
+     fi
+________________________________________________________________________________________________________________________________________________________________________________________________________
+5. Write a program to print calendar of current month in next year,previous years.
+	For eg:-sep 2014,sep 2012 if current month is sep 2013	
+
+________________________________________________________________________________________________________________________________________________________________________________________________________
+6. Write a program to find sum and product of two no.s using 
+	a) let 
+           a=50
+           b=20
+           sum=$(( $a + $b ))
+           echo $sum
+
+	b)expr 
+          echo "Enter two numbers"
+          read num1 num2
+          sum='expr $num1+$num2'
+          echo "sum of two numbers = $sum"
+          
+
+	c)bc	
+          $ echo 'scale=4;20+20' |bc
+________________________________________________________________________________________________________________________________________________________________________________________________________
+7. Write a script to generate Fibonacci series.
+     N=10 
+     a=0  
+     b=1 
+     echo "The Fibonacci series is : "
+     for (( i=0; i<N; i++ )) 
+     do
+	echo -n "$a "
+	fn=$((a + b)) 
+	a=$b 
+	b=$fn 
+    done
+________________________________________________________________________________________________________________________________________________________________________________________________________
+8. Write a shell script to reverse the single strings. 
+   $ echo "hello World" |rev
+   dlroW olleh
+________________________________________________________________________________________________________________________________________________________________________________________________________
+9.Write a shell script to reverse the list of strings and reverse each string further in the list.
+     input="$1"
+     reverse="Aarti"
+     len=${#input}
+     for (( i=$len-1; i>=0; i-- ))
+     do 
+	 reverse="$reverse${input:$i:1}"
+     done
+     echo "$reverse"
+________________________________________________________________________________________________________________________________________________________________________________________________________
+10. Write a shell script to print the reverse of an input number.
+   read -p "Enter a number: " num
+   echo $num | rev
+
+s_______________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+1.Write a shell script to validate password strength. Here are a few assumptions for the password string.
+Length  – minimum of 8 characters.
+Contain both alphabet and number.
+Include both the small and capital case letters.
+If the password doesn’t comply with any of the above conditions, then the script should report it as a <Weak Password>.
+
