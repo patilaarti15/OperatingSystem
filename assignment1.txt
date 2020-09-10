@@ -204,6 +204,8 @@ i) clear  clear command used to clear the terminal screen.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 Q2.	A) Create three directory a b and c and create a.txt,b.txt and c.txt in each directory respectively and then copy c directory into the a.
 
+Q2.	A) Create three directory a b and c and create a.txt,b.txt and c.txt in each directory respectively and then copy c directory into the a.
+
 mkdir a b c
 
 cd a
@@ -217,34 +219,112 @@ cd ..
 cd c
 touch c.txt
 cd ..
-	
+
+cp -r c a	
 
 B)Move Directory b to c.
-	C)Create alias of ls -lh command to your name.
-	D)Change Directory name a to cdac.
+mv b c
+	
+C)Create alias of ls -lh command to your name.
+
+alias aarti='ls -lh'
+	
+D)Change Directory name a to cdac.
+mv a cdac
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 Q3. A) Create five files file1.txt , file2.txt ,file3.txt file4.txt and
     file5.txt with some text inside it. Search for 's' character
     inside all the files using grep command.
     Also Use cat to view all file content together.
-	B)Create file.txt using cat and edit that using nano editor.
-	c)Create 5 empty files using touch command
-	D)Remove previously created directory a , b and c.
+
+cat file1.txt
+cat file2.txt
+cat file3.txt
+cat file4.txt
+cat file5.txt
+
+grep 's' file[1-5].txt
+
+cat file?.txt
+
+	
+B)Create file.txt using cat and edit that using nano editor.
+
+nano file.txt
+cat file.txt
+	
+c)Create 5 empty files using touch command
+
+$ touch demo1.txt demo2.txt  demo3.txt demo4.txt demo5.txt
+	
+D)Remove previously created directory a , b and c.
+rm -rf a b c
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 Q4. Create a file with some content using vi editor
+
+vi testfile
+       i to insert text 
+      escape to leave insert
+      :wq to exit
+
 	a) Display the file using cat command
+          $ cat testfile
+          WELCOME TO CDAC-JUHU-2020
+
 	b) Display line numbers along with content
+           $ cat -n testfile
+           1  WELCOME TO CDAC-JUHU-2020
+
 	c) Display the file in reverse order using tac
+            $ tac testfile  
+
 	d) Combine multiple files using cat command
+           $ cat file1.txt file2.txt file3.txt
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 Q5. Create Random some files and sub directories.
+
 	a) display files row wise, column wise, 1 per row
+           $ column file.txt
+
+           
 	b) sort the files in ascending, descending order
+           $ sort file.txt     //for ascending order
+           $ sort -r file.txt  //for descending order
+
 	c) Create some hidden files and sub directories and display them using “ls -a”
+           $ mkdir .aa .bb .c.txt
+           $ ls -a
+
 	d) Change time stamp of some files and directories using touch command and display the files using ls -t ls -rt
+            $ stat demo1.txt
+
+            File: demo1.txt
+            Size: 0               Blocks: 0          IO Block: 4096   regular empty file
+            Device: 2h/2d   Inode: 3377699720669152  Links: 1
+            Access: (0666/-rw-rw-rw-)  Uid: ( 1000/   rtron)   Gid: ( 1000/   rtron)
+            Access: 2020-09-10 21:12:16.677185700 +0530
+            Modify: 2020-09-10 21:12:16.677185700 +0530
+            Change: 2020-09-10 21:12:16.677185700 +0530
+            Birth: -
+
+            $ touch -a demo1.txt
+            
+            $ stat demo1.txt
+
+            $ ls -t
+            testfile  file.txt  demo5.txt  demo4.txt  demo3.txt  demo2.txt  demo1.txt  file5.txt  file4.txt  file3.txt  file2.txt  file1.txt  c.txt  cdac  test1  f1.txt
+
+           $ ls -rt
+           f1.txt  test1  cdac  c.txt  file1.txt  file2.txt  file3.txt  file4.txt  file5.txt  demo1.txt  demo2.txt  demo3.txt  demo4.txt  demo5.txt  file.txt  testfile
+
+
 	e) Recursive display contents of your home directory.
+           $ ls -r
 	f) display all attributes of files and directories using ls -l
+           $ ls -l
 	g) display attributes of a directory using ls -ld
+           $ ls -ld
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 Q1. Create directory of your name and then create 4 files inside it named
 	a.txt, b.txt, c.txt and d.sh. And change the directory permission to
