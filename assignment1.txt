@@ -329,24 +329,49 @@ Q5. Create Random some files and sub directories.
 Q1. Create directory of your name and then create 4 files inside it named
 	a.txt, b.txt, c.txt and d.sh. And change the directory permission to
 	only user and also files permission to only user such that
+
+$ mkdir aarti
+$ touch a.txt b.txt c.txt d.sh
+$ chmod u+rwx aarti
+
+
 		a)user can read and write the file a.txt and b.txt
+   
+                  $ chmod -u+rw a.txt b.txt  (or) chmod -u-x a.txt b.txt    (or)     chmod u+rw- bar     
+
 		b)user can write the file c.txt
+                  $ chmod -u+w c.txt  (or) chmod -u-rx c.txt (or)
+
+
 		c)user can exectuable the file d.sh. Make
 			Contents of file d.sh:
 			#/bin/sh
 			ls -lh
+
+                  $ chmod -u-rw d.sh   //chmod +x d.sh
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 Q2. Change the permission of the previous directory to executable only.
 	Analyze the output.
+$chmod +x aarti
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 Q3. Change the permission of the previous directory to read only.
 	Analyze the output.
-Q4. Use echo to list the all files of your home directory.
-Q5. Use echo to list the all files of /etc/ directory
-Q6. Use echo to list the all files of /etc/ directory with extension name .conf
-Q7. Use echo to append your name to a.txt
 
-==================================================================================
+    $ chmod +r aarti (or) chmod -wx aarti
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q4. Use echo to list the all files of your home directory.
+    $ echo * 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q5. Use echo to list the all files of /etc/ directory
+    $ 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q6. Use echo to list the all files of /etc/ directory with extension name .conf
+    $find /etc -type f -name "*.conf"
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q7. Use echo to append your name to a.txt
+     $ echo 'aarti' >> a.txt
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Note:Many operation might not work.Analyze them
 1.	Create Three level nested directory a,b and c
