@@ -379,6 +379,24 @@ a)Create at least one hidden file in each directory
 b)Create at least one normal text file in each directory
 c)Copy c into a
 d)Copy file inside a into b
+
+mkdir a
+cd a
+touch a.txt 
+touch .hidden.txt
+a.mkdir b
+
+mkdir b
+cd b
+touch b.txt 
+touch .hidden1.txt
+
+b.mkdir c
+touch c.txt 
+touch .hidden2.txt
+c. cp -r  c a
+d.cp -r a/a.txt a/b
+ cp -r a/c/ a/b
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 2.	Change the third level directory c permission to read only
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
