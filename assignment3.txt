@@ -54,7 +54,7 @@ int main()
         a=sched_getscheduler(getpid());
         switch(a)
         {
-                case SCHED_OTHER:cout<<"another scheduling poly"<<endl;
+                case SCHED_OTHER:cout<<"another scheduling policy"<<endl;
                 break;
                 case SCHED_RR:cout<<"round robin scheduler"<<endl;
                 break;
@@ -174,49 +174,3 @@ if( i== 0){
 return 0;
 }
 
-OUTPUT
-
-no of process=
-3
-
- enter the process 0 name = P1
- enter the process 0 arrival time = 0     
- enter the process 0 burst time = 3
-
- enter the process 1 name = P2
- enter the process 1 arrival time = 2
- enter the process 1 burst time = 5
-
- enter the process 2 name = P3
- enter the process 2 arrival time = 5
- enter the process 2 burst time = 6
-
- process no 1
- name P1
- arrival time 0
- burst time 3
- response time 0
- complete time 3
- waiting time 0
- turnaround time 3
-
- process no 2
- name P2
- arrival time 2
- burst time 5
- response time 3
-complete time 8
- waiting time 1
- turnaround time 6
-
- process no 3
- name P3
- arrival time 5
- burst time 6
- response time 8
- complete time 14
- waiting time 3
- turnaround time 9
-
- average waiting time = 1
- average turnaround time =6
