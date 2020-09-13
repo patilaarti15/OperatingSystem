@@ -375,7 +375,7 @@ Q7. Use echo to append your name to a.txt
 
 Note:Many operation might not work.Analyze them
 1.Create Three level nested directory a,b and c
-$ mkdir a b c
+$ mkdir -p a/b/c
 a)Create at least one hidden file in each directory
 $ touch .h1 
 $ touch .h2
